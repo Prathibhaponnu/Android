@@ -1,41 +1,52 @@
-package com.example.sjcet.loginformpgm;
+package com.example.sjcet.caluclator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-         Button b1,b2;
-         EditText e1,e2;
-    @Override
+
+    EditText t1;
+    EditText t2;
+    TextView t3;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        e1=(EditText)findViewById(R.id.ED1);
-        e2=(EditText)findViewById(R.id.ED2);
-        b1=(Button) findViewById(R.id.B1);
-        b2=(Button)findViewById(R.id.B2);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(e1.getText().toString().equals("admin")&&e2.getText().toString().equals("admin")){
-                    Toast.makeText(getApplicationContext(),"REDIRECTING.......",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "Wrong credentials....", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        t1= (EditText) findViewById(R.id.n1);
+        t2=(EditText) findViewById(R.id.num2);
+        t3=(TextView) findViewById(R.id.t1);
+
+    }
+
+    public void sum(View view) {
+        int x=Integer.parseInt(t1.getText().toString());
+        int y=Integer.parseInt(t2.getText().toString());
+        int s=x+y;
+        t3.setText(Integer.toString(s));
+
+    }
+
+    public void diff(View view) {
+        int x=Integer.parseInt(t1.getText().toString());
+        int y=Integer.parseInt(t2.getText().toString());
+        int s=x-y;
+        t3.setText(Integer.toString(s));
+
+    }
+    public void mul(View view) {
+        int x=Integer.parseInt(t1.getText().toString());
+        int y=Integer.parseInt(t2.getText().toString());
+        int s=x*y;
+        t3.setText(Integer.toString(s));
+
+    }
+    public void div(View view) {
+        int x=Integer.parseInt(t1.getText().toString());
+        int y=Integer.parseInt(t2.getText().toString());
+        int s=x/y;
+        t3.setText(Integer.toString(s));
 
     }
 }
